@@ -1,0 +1,2 @@
+# Bug: if word count of userwordinput is too small or too large, the program will not run because of the variable section.
+# Solution: random userwordinput number and giving each line a variable to be called on for accuracy check
