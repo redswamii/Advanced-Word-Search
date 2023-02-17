@@ -1,0 +1,91 @@
+userphraseinput = "One way to progress toward communication competence is to become a more mindful communicator. A mindful communicator actively and fluidly processes information, is sensitive to communication contexts and multiple perspectives, and is able to adapt to novel communication situations (Burgoon, Berger, & Waldron, 2000). Becoming a more mindful communicator has many benefits, including achieving communication goals, detecting deception, avoiding stereotypes, and reducing conflict."
+
+userphraseinput = userphraseinput.replace(",", "")
+userphraseinput = userphraseinput.replace(".", "")
+userphraseinput = userphraseinput.replace(" ", "\n")
+
+userwordinput = "communication goals, detecting deception, avoiding stereotypes, and reducing conflict"
+
+userwordinput = userwordinput.replace(",", "")
+userwordinput = userwordinput.replace(".", "")
+userwordinput = userwordinput.replace(" ", "\n")
+
+with open("userwordinput.txt", 'r') as fp:
+    for count, line in enumerate(fp):
+        pass
+userwordcount = count + 1
+
+f = open("userphraseinput.txt", 'w')
+f.write(userphraseinput)
+f.close()
+
+f = open("userwordinput.txt", 'w')
+f.write(userwordinput)
+f.close()
+
+w1, w2 = userwordinput.splitlines()[0], userwordinput.splitlines()[1]
+w3 = userwordinput.splitlines()[2]
+w4 = userwordinput.splitlines()[3]
+w5 = userwordinput.splitlines()[4]
+w6 = userwordinput.splitlines()[5]
+w7 = userwordinput.splitlines()[6]
+w8 = userwordinput.splitlines()[7]
+w9 = userwordinput.splitlines()[8]
+
+if w1 in userphraseinput:
+    f = open("truefalse.txt", 'w')
+    f.write("true")
+    f.close()
+
+if w2 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close()
+
+if w3 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close()
+
+if w4 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close()
+
+if w5 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close()
+
+if w6 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close
+
+if w7 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close
+
+if w8 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close
+
+if w9 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close
+
+word = "true"
+truecount = 0
+with open("truefalse.txt", 'r') as f:
+    for line in f:
+        words = line.split()
+        for i in words:
+            if(i==word):
+                truecount=truecount+1
+f.close()
+
+print(truecount, "/" ,userwordcount, "Words Found")
+print(truecount/userwordcount*100,"% Word Accuracy")
