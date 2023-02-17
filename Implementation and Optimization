@@ -1,0 +1,32 @@
+# Implementation to script: 
+
+true vs false counter to calculate accuracy of the found results vs the users search query.
+print(truecount, "/" ,userwordcount, "Words Found")
+print(truecount/userwordcount*100,"% Word Accuracy")
+
+# Cleaning up script:
+
+easier way to clean data of special characters? 
+userphraseinput = userphraseinput.replace(",", "")
+userphraseinput = userphraseinput.replace(".", "")
+userphraseinput = userphraseinput.replace(" ", "\n")
+
+are so many if statments needed? Possibly tie into a forloop?
+if w1 in userphraseinput:
+    f = open("truefalse.txt", 'w')
+    f.write("true")
+    f.close()
+if w2 in userphraseinput:
+    f = open("truefalse.txt", 'a')
+    f.write(" true")
+    f.close()
+    
+combining lines
+w1, w2 = userwordinput.splitlines()[0], userwordinput.splitlines()[1]
+w3 = userwordinput.splitlines()[2]
+w4 = userwordinput.splitlines()[3]
+w5 = userwordinput.splitlines()[4]
+w6 = userwordinput.splitlines()[5]
+w7 = userwordinput.splitlines()[6]
+w8 = userwordinput.splitlines()[7]
+w9 = userwordinput.splitlines()[8]
