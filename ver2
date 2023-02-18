@@ -1,0 +1,32 @@
+# Bug: if word count of userwordinput is too small or too large, the program will not run because of the variable section.
+# Solution: random userwordinput number and giving each line a variable to be called on for accuracy check
+
+# Implement true vs false counter to calculate accuracy of the found results vs the users search query.
+
+userphraseinput = "communication goals, detecting test, avoiding stereotypes, and test conflict"
+userwordinput = "communication goals, detecting deception, avoiding stereotypes, and reducing conflict"
+
+userphraselist = userphraseinput.replace(",", "").replace(".", "").replace(" ", "\n")
+userwordlist = userwordinput.replace(",", "").replace(".", "").replace(" ", "\n")
+
+f = open("userphraseinput.txt", 'w')
+f.write(userphraselist)
+f.close()
+
+f = open("userwordinput.txt", 'w')
+f.write(userwordlist)
+f.close()
+
+with open("userwordinput.txt", 'r') as fp:
+    for count, line in enumerate(fp):
+        pass
+userwordcount = count + 1
+
+word = "true"
+truecount = 0
+with open("truefalse.txt", 'r') as f:
+    for line in f:
+        words = line.split()
+        for i in words:
+            if (i==word):
+                truecount = truecount+1
