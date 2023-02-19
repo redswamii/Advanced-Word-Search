@@ -1,26 +1,36 @@
-# Bug: if word count of userwordinput is too small or too large, the program will not run because of the variable section.
-# Solution: random userwordinput number and giving each line a variable to be called on for accuracy check
-
-# Implement true vs false counter to calculate accuracy of the found results vs the users search query.
-# Implement exact phrase search. Keeps all puncuation and upper/lower case for exact finds.
-# Implement make all text lower case
-
 # https://docs.python.org/3/library/re.html
 import re
 
+# Wipe text files for later append use.
+f = open ('truefalse.txt', 'w')
+
 # User input phrase and find words that are saved as variables
-userphraseinput = "communication goals, detecting test, avoiding stereotypes, and test conflict"
-userwordinput = "communication goals, detecting deception, avoiding stereotypes, and reducing conflict"
+userphraseinput = "false1, word2, word3 ,word4, false2"
+userwordinput = "word1, word2, word3 ,word4, word5"
 
 # Clean up text for easier search
-userphraselist = userphraseinput.replace(",", "").replace(".", "")
-userwordlist = userwordinput.replace(",", "").replace(".", "")
+userphraselist = userphraseinput.replace(",", "").replace(".", "").split()
+userwordlist = userwordinput.replace(",", "").replace(".", "").split()
 
-words_to_match = userwordinput.split()
+# Count how many words are in userphraseinput & userwordinput.
 
-for word in words_to_match:
-    pattern = re.compile(r'\b{}\b'.format(word))
-    if re.search(pattern, userphraseinput):
-        print("true".format(word))
-    else:
-        print("false".format(word))
+
+# Matches words to phrase and prints true statements to file.
+for word in userwordlist:
+    for text in userphraselist:
+        if re.search(word, text):
+            f = open('truefalse.txt', 'a')
+            f.write(word + ' true\n')
+            f.close()
+
+# Accuracy calculator.
+phrase_count = len(userphraselist)
+word_count = len(userwordlist)
+
+word = "true"
+with open('truefalse.txt', 'r') as file:
+    text = file.read()
+    true_count = text.count(word)
+
+print(true_count,"/", word_count)
+print(true_count/word_count*100,"%")
