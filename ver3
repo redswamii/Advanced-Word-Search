@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+# https://docs.python.org/3/library/re.html
+import re
+import os
+
+# Wipe text files for later append use.
+f = open ('truefalse.txt', 'w')
+
+# User input phrase and find words that are saved as variables
+userphraseinput = input("Copy/paste desired text to check: ")
+userwordinput = input("Copy/paste or type words to search: ")
+
+# Exact phrase search
+if userwordinput == userphraseinput:
+    print("Exact Match Found")
+else:
+    print("No Exact Match")
+
+# Removes duplicate words from userinputphrase
+words = userphraseinput.split()
+unique_words = set(words)
+userphraseinput = ' '.join(unique_words)
+
+# Remove all special characters,punctuation, make lowercase, and split userinput.
+userphraselist = re.findall(r'\b\w+\b', userphraseinput.lower())
+userwordlist = re.findall(r'\b\w+\b', userwordinput.lower())
+
+# Matches words to phrase and prints true statements to file.
+for word in userwordlist:
+    for text in userphraselist:
+        if re.search(word, text):
+            f = open('truefalse.txt', 'a')
+            f.write(word + ' true\n')
+            f.close()
+
+# Accuracy calculator.
+phrase_count = len(userphraselist)
+word_count = len(userwordlist)
+
+word = "true"
+with open('truefalse.txt', 'r') as file:
+    text = file.read()
+    true_count = text.count(word)
+
+print(true_count,"/", word_count)
+print(true_count/word_count*100,"%")
+
+# File removal in current working directory.
+os.remove('truefalse.txt')
