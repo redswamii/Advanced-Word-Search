@@ -1,3 +1,12 @@
+# Account for plural and singular words
+
+# Remove word duplicates (Completed 02/19/2023)
+```
+words = userphraseinput.split()
+unique_words = set(words)
+userphraseinput = ' '.join(unique_words)
+```
+
 #True vs false counter to calculate accuracy of the found results vs the users search query (Complete - ver2 02/19/2023).
 ```
 phrase_count = len(userphraselist)
@@ -12,13 +21,20 @@ print(true_count,"/", word_count)
 print(true_count/word_count*100,"%")
 ```
 
-# Cleaning up script (Not Complete - ver2 02/19/2023)
+# Cleaning up script (Complete - ver2 02/19/2023)
 easier way to clean data of special characters and punctuation? 
-userphraselist = userphraseinput.replace(",", "").replace(".", "").split()
-userwordlist = userwordinput.replace(",", "").replace(".", "").split()
+```
+userphraselist = re.findall(r'\b\w+\b', userphraseinput.lower())
+userwordlist = re.findall(r'\b\w+\b', userwordinput.lower())
+```
 
-# Account for plural and singular words
-# Exact phrase search that includes special char, puncuation, upper/lower case, etc. 
+# Exact phrase search that includes special char, puncuation, upper/lower case, etc. (Completed - 02/19/2023)
+```
+if userwordinput == userphraseinput:
+    print("Exact Match Found")
+else:
+    print("No Exact Match")
+ ```
 
 # Are so many if statments needed? Possibly tie into a forloop? (Replaced - ver2 02/19/2023)
 if w1 in userphraseinput:
