@@ -1,17 +1,26 @@
-# Implementation to script: 
+#True vs false counter to calculate accuracy of the found results vs the users search query (Complete - ver2 02/19/2023).
+```
+phrase_count = len(userphraselist)
+word_count = len(userwordlist)
 
-true vs false counter to calculate accuracy of the found results vs the users search query.
-print(truecount, "/" ,userwordcount, "Words Found")
-print(truecount/userwordcount*100,"% Word Accuracy")
+word = "true"
+with open('truefalse.txt', 'r') as file:
+    text = file.read()
+    true_count = text.count(word)
 
-# Cleaning up script:
+print(true_count,"/", word_count)
+print(true_count/word_count*100,"%")
+```
 
-easier way to clean data of special characters? 
-userphraseinput = userphraseinput.replace(",", "")
-userphraseinput = userphraseinput.replace(".", "")
-userphraseinput = userphraseinput.replace(" ", "\n")
+# Cleaning up script (Not Complete - ver2 02/19/2023)
+easier way to clean data of special characters and punctuation? 
+userphraselist = userphraseinput.replace(",", "").replace(".", "").split()
+userwordlist = userwordinput.replace(",", "").replace(".", "").split()
 
-are so many if statments needed? Possibly tie into a forloop?
+# Account for plural and singular words
+# Exact phrase search that includes special char, puncuation, upper/lower case, etc. 
+
+# Are so many if statments needed? Possibly tie into a forloop? (Replaced - ver2 02/19/2023)
 if w1 in userphraseinput:
     f = open("truefalse.txt", 'w')
     f.write("true")
@@ -31,6 +40,11 @@ w7 = userwordinput.splitlines()[6]
 w8 = userwordinput.splitlines()[7]
 w9 = userwordinput.splitlines()[8]
 
-# Overall, this code can be useful for users who want to search for specific words in a large body of text, but it does have some limitations. For example, it does not
-account for variations in word forms (such as plural vs. singular), and it does not take into account the context in which the word appears. Therefore, the results of
-this script should be interpreted with caution and may require manual inspection to ensure accuracy.
+```
+for word in userwordlist:
+    for text in userphraselist:
+        if re.search(word, text):
+            f = open('truefalse.txt', 'a')
+            f.write(word + ' true\n')
+            f.close()
+```
