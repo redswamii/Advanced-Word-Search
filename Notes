@@ -1,0 +1,134 @@
+s = "That I ever did see. Dusty as the handle on the door"
+
+if "Dusty" in s:
+    print("query found")
+
+input_2 = "Oh, you can't help that,' said the Cat: 'we're all mad here. I'm mad. You're mad."
+
+split_into_words(input_2)
+print(input_2)
+
+f = open("userphraseinput.txt", 'w')
+f.write(userphraseinput)
+f.close()
+
+f = open("userwordinput.txt", 'w')
+f.write(userwordinput)
+f.close()
+
+with open("userphraseinput.txt", "r") as text:
+    text_data = text.readlines()
+    for word in text_data:
+        result = word.split()
+        print(result)
+
+with open("userwordinput.txt", "r") as text:
+    text_data = text.readlines()
+    for word in text_data:
+        result = word.split()
+        print(result)
+
+print(len(text_data))
+
+print(userwordinput.splitlines()[1])
+print(userwordinput.splitlines()[2])
+print(userwordinput.splitlines()[3])
+print(userwordinput.splitlines()[4])
+print(userwordinput.splitlines()[5])
+print(userwordinput.splitlines()[6])
+print(userwordinput.splitlines()[7])
+print(userwordinput.splitlines()[8])
+
+count = 0
+f = open("truefalse.txt", "r")
+for line in f:
+    word = line.split(" ")
+    count += len(word)
+
+print(str(count))
+f.close()
+
+word = "true"
+count = 0
+with open("truefalse.txt", 'r') as f:
+    for line in f:
+        words = line.split()
+        for i in words:
+            if(i==word):
+                count=count+1
+print(count)
+f.close()
+
+userphraselist = userphraseinput.replace(" ", "\n").replace(".", "").replace(",","")
+
+
+if userwordcount <= 100:
+    print("true")
+
+w1, w2, w3, w4, w5 = userwordinput.splitlines()[0], userwordinput.splitlines()[1], userwordinput.splitlines()[2], userwordinput.splitlines()[3], userwordinput.splitlines()[4]
+w6, w7, w8, w9, w10 = userwordinput.splitlines()[5], userwordinput.splitlines()[6], userwordinput.splitlines()[7], userwordinput.splitlines()[8], userwordinput.splitlines()[9]
+w11, w12, w13, w14, w15 = userwordinput.splitlines()[10], userwordinput.splitlines()[11], userwordinput.splitlines()[12], userwordinput.splitlines()[13], userwordinput.splitlines()[14]
+w16, w17, w18, w19, w20 = userwordinput.splitlines()[15], userwordinput.splitlines()[16], userwordinput.splitlines()[17], userwordinput.splitlines()[18], userwordinput.splitlines()[19]
+
+(
+userphraseinput = "communication goals, detecting test, avoiding stereotypes, and test conflict"
+userwordinput = "communication goals, detecting deception, avoiding stereotypes, and reducing conflict"
+
+userphraselist = userphraseinput.replace(",", "").replace(".", "").replace(" ", "\n")
+userwordlist = userwordinput.replace(",", "").replace(".", "").replace(" ", "\n")
+
+f = open("userphraseinput.txt", 'w')
+f.write(userphraselist)
+f.close()
+
+f = open("userwordinput.txt", 'w')
+f.write(userwordlist)
+f.close()
+
+with open("userwordinput.txt", 'r') as fp:
+    for count, line in enumerate(fp):
+        pass
+userwordcount = count + 1
+
+word = "true"
+truecount = 0
+with open("truefalse.txt", 'r') as f:
+    for line in f:
+        words = line.split()
+        for i in words:
+            if (i==word):
+                truecount = truecount+1
+    )
+
+(
+userphraseinput = "communication goals, detecting test, avoiding stereotypes, and test conflict"
+userwordinput = "communication goals, detecting deception, avoiding stereotypes, and reducing conflict"
+
+userphraselist = userphraseinput.replace(",", "").replace(".", "").replace(" ", "\n")
+userwordlist = userwordinput.replace(",", "").replace(".", "").replace(" ", "\n")
+)
+
+(
+all_words = userphraselist.split()
+selected_word = all_words[2]
+print(selected_word)
+)
+
+# input
+for word in words_to_match:
+    pattern = re.compile(r'\b{}\b'.format(word))
+    if re.search(pattern, userphraseinput):
+        print("Match found for '{}'".format(word))
+    else:
+        print("No match found for '{}'".format(word))
+
+# output
+Match found for 'communication'
+Match found for 'goals'
+Match found for 'detecting'
+No match found for 'deception'
+Match found for 'avoiding'
+Match found for 'stereotypes'
+Match found for 'and'
+No match found for 'reducing'
+Match found for 'conflict'
