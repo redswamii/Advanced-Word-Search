@@ -1,3 +1,21 @@
+# Bug. After attempting to use ver3, the code seems to skip over my word selection and just auto search the first word in my phrase selection. 
+```
+Copy/paste desired text to check: Libraries help make the universe of knowledge more manageable by collecting, organizing, and providing us access to information.
+They offer resources and services to help you thoroughly investigate a topic, in contrast to the information you can find in a general online search. Libraries 
+provide access to information that is not available through other means, so learning how to use these resources and services effectively is critical to your research
+skills. 
+Copy/paste or type words to search: No Exact Match
+0 / 0
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\advanced_word_search\main.py", line 47, in <module>
+    print(true_count/word_count*100,"%")
+ZeroDivisionError: division by zero
+
+Process finished with exit code 1
+```
+
+The issue seems to be any kind of 'enter' or 'tab' in the text when I copy and paste into terminal. Basically, the text needs to be on one line or it wont run. 
+
 # Account for plural and singular words
 
 # Remove word duplicates (Completed 02/19/2023)
